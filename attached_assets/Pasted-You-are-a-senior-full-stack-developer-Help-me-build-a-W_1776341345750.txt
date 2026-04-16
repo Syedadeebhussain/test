@@ -1,0 +1,119 @@
+You are a senior full-stack developer.
+
+Help me build a WhatsApp chatbot backend for my project:
+"AI-Powered WhatsApp Business Assistant for small businesses".
+
+TECH STACK:
+- Node.js + Express
+- WhatsApp Cloud API (Meta)
+- REST API
+- Optional: Supabase (PostgreSQL)
+
+GOAL:
+Create a backend that:
+1. Receives WhatsApp messages via webhook
+2. Parses incoming message
+3. Sends automatic reply
+4. Uses simple chatbot logic
+5. Is modular (controllers, routes, services)
+6. Can later connect to AI (Gemini / OpenAI)
+
+=========================================
+STEP 1 — PROJECT STRUCTURE
+=========================================
+
+Create folder structure:
+
+backend/
+ ├── controllers/
+ │    └── whatsappController.js
+ ├── routes/
+ │    └── whatsappRoutes.js
+ ├── services/
+ │    └── whatsappService.js
+ ├── utils/
+ │    └── helper.js
+ ├── .env
+ ├── server.js
+ └── package.json
+
+=========================================
+STEP 2 — WEBHOOK SETUP
+=========================================
+
+Implement:
+GET /webhook → verify webhook
+POST /webhook → receive message
+
+=========================================
+STEP 3 — MESSAGE HANDLING
+=========================================
+
+Extract:
+- sender phone number
+- message text
+
+=========================================
+STEP 4 — CHATBOT LOGIC
+=========================================
+
+Implement simple logic:
+
+if message contains "hi"
+→ reply "Hello 👋 How can I help you?"
+
+if message contains "price"
+→ reply "Price is ₹50 per kg"
+
+if message contains "order"
+→ reply "Your order is placed ✅"
+
+else
+→ reply "Sorry, I didn’t understand"
+
+=========================================
+STEP 5 — SEND MESSAGE
+=========================================
+
+Use WhatsApp Cloud API:
+
+POST https://graph.facebook.com/v18.0/{PHONE_NUMBER_ID}/messages
+
+Headers:
+Authorization: Bearer TOKEN
+
+=========================================
+STEP 6 — ENV VARIABLES
+=========================================
+
+PORT=3000
+VERIFY_TOKEN=hello123
+WHATSAPP_TOKEN=your_token
+PHONE_NUMBER_ID=your_phone_id
+
+=========================================
+STEP 7 — TESTING
+=========================================
+
+- Run server
+- Use ngrok to expose localhost
+- Connect webhook in Meta
+- Send WhatsApp message
+- Bot should reply
+
+=========================================
+STEP 8 — OUTPUT FORMAT
+=========================================
+
+Provide:
+- Full working code
+- File-wise explanation
+- How to run
+- How to test
+
+=========================================
+
+IMPORTANT:
+Keep code simple and beginner-friendly.
+Add comments.
+Do not skip steps.
